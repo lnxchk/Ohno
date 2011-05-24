@@ -19,6 +19,8 @@ of hours as the command line argument.
 ## This is a mess, yo
 Yup.
 
-Need to learn something about inheritance in ruby. Someday. Right now have a duped copy of the time converter in the ohno.rb file.
+Thanks to @jtimberman for some de-duping help on the time_difference_in_hms stuff.
 
-Want to fix the output to just show the bustimicated ones and not the whole f'ing list.
+
+
+Now shows only lost cheeps.  Added some red thanks to the ui stuff and @kallistec.

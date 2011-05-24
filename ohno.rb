@@ -20,16 +20,22 @@ module Lnxchk
 
       hours = hours.to_i
 
+      stdout_orig = $stdout 
+      $stdout = File.open('/tmp/ohno', 'w')
       knife_status = Chef::Knife::Status.new
       hitlist = knife_status.run
+      $stdout.close
+      $stdout = stdout_orig
+
       print "\nLost cheep in need of chefherding for more than #{hours} hours: \n"
       hitlist.each { |node|
         hour, minutes, seconds = Chef::Knife::Status.new.time_difference_in_hms(node["ohai_time"])
         if hour >= hours
           x = hour.to_s()
-          print "#{node['fqdn']} : #{x}\n"
+          ui.msg("#{node['fqdn']}:\t\t" + ui.color("#{x} hours", :red))
         end
       }
+      File.delete('/tmp/ohno')
     end # close run
   end # close class
 end # close module
