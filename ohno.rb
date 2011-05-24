@@ -21,7 +21,7 @@ module Lnxchk
       hours = hours.to_i
 
       stdout_orig = $stdout 
-      $stdout = File.open('/tmp/ohno', 'w')
+      $stdout = File.open('/dev/null', 'w')
       knife_status = Chef::Knife::Status.new
       hitlist = knife_status.run
       $stdout.close
@@ -35,7 +35,7 @@ module Lnxchk
           ui.msg("#{node['fqdn']}:\t\t" + ui.color("#{x} hours", :red))
         end
       }
-      File.delete('/tmp/ohno')
+      #File.delete('/tmp/ohno')
     end # close run
   end # close class
 end # close module
