@@ -35,7 +35,6 @@ module Lnxchk
           ui.msg("#{node['fqdn']}:\t\t" + ui.color("#{x} hours", :red))
         end
       }
-      #File.delete('/tmp/ohno')
     end # close run
   end # close class
 end # close module
