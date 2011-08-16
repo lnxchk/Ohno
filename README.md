@@ -15,6 +15,10 @@ knife ohno 6
 Shows you the clients that are 6 or more hours out of date.  Takes any integer number
 of hours as the command line argument.
 
+knife ohno 6 nocolor
+
+Shows you the clients that are 6 or more hours out of date, but it removes the colored printout.
+Useful for piping to sendmail for crons and whatnots.
 
 ## This is a mess, yo
 Yup.

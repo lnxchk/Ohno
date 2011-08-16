@@ -17,6 +17,12 @@ module Lnxchk
         ui.error "You need to specify a number of hours behind the checkins are"
         exit 1
       end
+    
+      if nocolor = name_args[1]
+        color = 0
+      else 
+        color = 1
+      end
 
       hours = hours.to_i
 
@@ -32,9 +38,14 @@ module Lnxchk
         hour, minutes, seconds = Chef::Knife::Status.new.time_difference_in_hms(node["ohai_time"])
         if hour >= hours
           x = hour.to_s()
-          ui.msg("#{node['fqdn']}:\t\t" + ui.color("#{x} hours", :red))
+          if (color == 1)
+            ui.msg("#{node['fqdn']}:\t\t" + ui.color("#{x} hours", :red))
+          else
+            ui.msg("#{node['fqdn']}:\t\t#{x} hours")
+          end
         end
       }
+      #File.delete('/tmp/ohno')
     end # close run
   end # close class
 end # close module
