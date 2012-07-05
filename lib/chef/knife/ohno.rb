@@ -39,9 +39,9 @@ module Lnxchk
         if hour >= hours
           x = hour.to_s()
           if (color == 1)
-            ui.msg("#{node['fqdn']}:\t\t" + ui.color("#{x} hours", :red))
+            ui.msg("#{node.name}:\t\t" + ui.color("#{x} hours", :red))
           else
-            ui.msg("#{node['fqdn']}:\t\t#{x} hours")
+            ui.msg("#{node.name}:\t\t#{x} hours")
           end
         end
       }
